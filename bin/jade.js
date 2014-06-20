@@ -30,6 +30,8 @@ program
   .option('-p, --path <path>', 'filename used to resolve includes')
   .option('-P, --pretty', 'compile pretty html output')
   .option('-c, --client', 'compile function for client-side runtime.js')
+  .option('-d, --dbind', '${} data binding')
+  .option('-r, --rivets', 'wrap in rivets call (implies -d)')
   .option('-D, --no-debug', 'compile without debugging (smaller functions)')
   .option('-w, --watch', 'watch files for changes and automatically re-render')
 
@@ -84,6 +86,14 @@ options.pretty = program.pretty;
 // --watch
 
 options.watch = program.watch;
+
+// --dbind
+options.dbind = program.dbind;
+
+// --rivets
+if (options.rivets = program.rivers)
+  options.dbind = true;
+
 
 // left-over args are file paths
 
