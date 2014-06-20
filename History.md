@@ -1,10 +1,195 @@
+1.3.1 / 2014-04-04
+==================
 
-0.28.2 / 2013-03-04 
+  * Fix error with tags in xml that are self-closing in html ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Fix error message for inline tags with content ([@hiddentao](https://github.com/hiddentao))
+
+1.3.0 / 2014-03-02
+==================
+
+  * Fix a bug where sometimes mixins were removed by an optimisation even though they were being called ([@ForbesLindesay](http://www.forbeslindesay.co.uk/), reported by [@leider](https://github.com/leider))
+  * Updated with to support automatically detecting when a value is "global" and removed redundant `options.globals` option ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Improve warnings for tags with multiple attributes ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Deprecate (with a warning) `node.clone`, `block.replace`, `attrs.removeAttribute`, `attrs.getAttribute` - these are all internal APIs for the AST ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.2.0 / 2014-02-26
+==================
+
+  * Use variables instead of properties of jade, improving performance and reliability with nested templates ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Support compiling templates from stdin via a user typing ([@yorkie](https://github.com/yorkie))
+  * Lazily add mixins ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Fix case fall-through ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Earlier errors for `when` without `case` and `else` without `if` ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Allow `if`/`else` etc. to not have a block.
+  * Remove lib-cov legacy to make browserify work better ([@silver83](https://github.com/silver83))
+  * Add and improve test coverage using istanbul ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.1.5 / 2014-01-19
+==================
+
+  * Add filename to and fix line numbers for missing space before text warning (@ijin82)
+  * Fix filenames for some error reporting in extends/includes (@doublerebel)
+  * Fix a corner case where a mixin was called with `&attributes` but no other attributes and a block that was supposed to be fixed in 1.1.4 ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.1.4 / 2014-01-09
+==================
+
+  * Fix a corner case where a mixin was called with `&attributes` but no other attributes and a block ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.1.3 / 2014-01-09
+==================
+
+  * Fix failure of npm prepublish not running
+
+1.1.2 / 2014-01-09
+==================
+
+  * Fix same interaction of `&attributes` with `false` `null` or `undefined` but combined with dynamic attributes ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.1.1 / 2014-01-09
+==================
+
+  * Fix a bug when `&attributes` is combined with static attributes that evaluate to `false` or `null` or `undefined` ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.1.0 / 2014-01-07
+==================
+
+  * Fix class merging to work as documented ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Throw an error when the same attribute is duplicated multiple times ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Move more errors into the parser/lexer so they have more info about line numbers ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Support mixin blocks at the end of files ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.0.2 / 2013-12-31
+==================
+
+  * Fix a bug when `&attributes` is combined with dynamic attributes ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.0.1 / 2013-12-29
+==================
+
+  * Allow self closing tags to contian whitespace ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Allow tags to have a single white space after them ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Support text bodies of tags that begin with `//` rather than treating them as comments ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+
+1.0.0 / 2013-12-22
+==================
+
+  * No longer support node@0.8 ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Fix error reporting in layouts & includes ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Allow a list of 'globals' to be passed as an array at compile time & don't automatically expose all globals ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Escape apostrophes in data attributes (@qualiabyte)
+  * Fix mixin/block interaction ([@ForbesLindesay](http://www.forbeslindesay.co.uk/) & [@paulyoung](https://github.com/paulyoung))
+  * Ignore trailing space after mixin declaration ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Make literal `.` work as expected ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Remove implicit text only for script/style ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Stop parsing comments and remove support for conditional comments ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Make filtering includes explicit ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Remove special assignment syntax ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Remove `!!!` shortcut for `doctype` ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Remove `5` shorcut for `html` doctype ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Remove `colons` option from the distant past ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Add a sepatate `compileClient` and `compileFileClient` to replace the `client` option ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Remove polyfills for supporting old browsers ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Allow interpolation for mixin names ([@jeromew](https://github.com/jeromew)
+  * Use `node.type` instead of `node.constructor.name` so it can be minified ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Allow hyphens in filter names ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Throw an error if a self closing tag has content ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Support inline tags ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Replace `attributes` magic attribute with `&attributes(attributes)` ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Remove automatic tag wrapping for filters, you can just put the tags in yourself now ([@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Remove whitespace from tags nested inside pre tags ([@markdalgleish](http://markdalgleish.com))
+
+0.35.0 / 2013-08-21
+===================
+
+  * Add support for space separated attributes (thanks to [@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Add earlier errors for invalid JavaScript expressions (thanks to [@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * Fix parsing files with UTF8 BOMs when they are includes or parent/layout templates (thanks to [@kiinoo](https://github.com/kiinoo))
+
+0.34.1 / 2013-07-26
+===================
+
+  * fix render file not working when called with callback (reported by [@xieren58](https://github.com/xieren58))
+
+0.34.0 / 2013-07-26
+===================
+
+  * callbacks only called once for async methods even if they throw (reported by [@davidcornu](https://github.com/davidcornu))
+  * HTML comments are pretty printed better (thanks to [@eddiemonge](https://github.com/eddiemonge))
+  * callbacks are optional and leaving them out results in synchronous operation (thanks to [@ForbesLindesay](http://www.forbeslindesay.co.uk/))
+  * empty filter nodes are now permitted (thanks to [@coderanger](https://github.com/coderanger))
+  * overhaul website and documentation (thanks to [@ForbesLindesay](http://www.forbeslindesay.co.uk/)), much more of this to come.
+
+0.33.0 / 2013-07-12
+===================
+
+  * Hugely more powerful error reporting (especially with `compileDebug` set explicitly to `true`)
+  * Add a warning for tags with multiple attributes
+  * be strict about requiring newlines after tags to fix some odd corner cases
+  * fix escaping of class to allow it to be unescaped (thanks to [@christiangenco](https://github.com/christiangenco))
+
+0.32.0 / 2013-06-28
+===================
+
+  * remove `jade.version` and fix `jade --version`
+  * add file name and line number to deprecation warnings
+  * use constantinople for better constant detection
+  * update `with` for a massive performance upgrade at compile time
+
+0.31.2 / 2013-06-07
+===================
+
+  * fix overzealous deprecation warnings
+
+0.31.1 / 2013-05-31
+===================
+
+  * fix line endings for executable command
+  * fix `locals` variable being undefined
+  * fix an obscure bug that could occur if multiple mixins interact badly (see [substack/lexical-scope#13](https://github.com/substack/lexical-scope/issues/13))
+
+0.31.0 / 2013-05-30
+==================
+
+  * deprecate implicit text-only `script` and `style` tags
+  * make `with` at compile time using `lexical-scope`
+  * add `options.parser` that behaves exactly like `options.compiler`
+  * add "component.json" for component (runtime) support
+  * removed `hasOwnProperty` check in each loops
+  * removed .min files from the repository (people can just generate these themselves)
+  * use browserify to compile client side libraries
+  * fix buggy block extending should now be fixed
+  * fix preserve case of custom doctypes
+  * fix regexps in attributes sometimes not being accepted
+  * fix allow `$` sign in each loop variable names
+  * fix mixins with buffered code on the same line
+  * fix separate class names by ` ` rather than `,` (was sometimes incorrect)
+
+0.30.0 / 2013-04-25
+==================
+
+  * add support for 'include' and 'extends' to use paths relative to basedir
+  * fix accidental calling of functions in iteration block. Closes #986
+  * fix: skip rethrow on client
+  * fix each/else prefixed with `-`
+  * fix multi-block prepend/append
+  * swap -o and -O, set -o to --out
+
+0.29.0 / 2013-04-16
+==================
+
+  * add "monocle" for watcher that actually works...
+  * fix interpolation in blocks of text
+  * fix attribute interpolation
+  * move filters to an external library
+  * fix JavaScript escaping corner cases
+
+0.28.2 / 2013-03-04
 ==================
 
   * wtf coffeescript is not a dep
 
-0.28.1 / 2013-01-10 
+0.28.1 / 2013-01-10
 ==================
 
   * add passing of filename to include filters
